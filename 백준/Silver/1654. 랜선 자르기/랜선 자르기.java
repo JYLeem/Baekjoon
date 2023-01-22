@@ -42,8 +42,8 @@ public class Main {
 			
 			// 구해진 중간 길이로 잘라서 총 몇 개가 만들어지는지를 구한다.
  
-			for (int i = 0; i < arr.length; i++) {
-				count += (arr[i] / mid);
+			for (int i = 0; i < K; i++) {
+				count += arr[i] / mid;
 			}
 			
 			/*
