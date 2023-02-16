@@ -9,12 +9,39 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        int gcd = gcd(N, M);
-        System.out.println(gcd + "\n" + (M*N) /gcd);
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(gcd(N, M)).append("\n");
+        sb.append(lcm(N, M) / gcd(N, M)).append("\n");
+
+        System.out.println(sb);
+
+    }
+
+    public static int lcm (int x, int y) { 
+        return Math.abs(x * y);
+
     }
 
     public static int gcd (int x, int y){
-        if (y == 0) return x;
-        return gcd(y, x%y);
+        int rem = 0;
+
+        while (true){
+            if (x > y){
+                rem = x % y;
+                x = rem;
+                if (x == 0){
+                    return y;
+                }
+            }
+            else {
+                rem = y % x;
+                y = rem;
+                if (y == 0){
+                    return x;
+                }
+            }
+        }
     }
 }
